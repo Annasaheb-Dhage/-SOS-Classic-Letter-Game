@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Game</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="intro-animation">
+        <h1 class="intro-title">SOS</h1>
+        <p class="intro-subtitle">The Classic Letter Game</p>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Menu Screen -->
+    <div class="container">
+        <div class="menu-screen">
+            <h1 class="menu-title">SOS Game</h1>
+            <p class="menu-subtitle">Select your game options</p>
+            
+            <div class="option-group">
+                <label for="board-size" class="option-label">Board Size</label>
+                <select id="board-size" class="option-select">
+                    <option value="3">3×3</option>
+                    <option value="4">4×4</option>
+                    <option value="5">5×5</option>
+                </select>
+            </div>
+            
+            <div class="option-group difficulty-group" id="difficulty-group">
+                <label for="difficulty" class="option-label">Difficulty Level (vs Computer)</label>
+                <select id="difficulty" class="option-select">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <div class="game-mode">
+                <div class="mode-option">
+                    <input type="radio" id="pvp" name="game-mode" value="pvp" checked>
+                    <label for="pvp" class="mode-label">Player vs Player</label>
+                </div>
+                <div class="mode-option">
+                    <input type="radio" id="pvc" name="game-mode" value="pvc">
+                    <label for="pvc" class="mode-label">Player vs Computer</label>
+                </div>
+            </div>
+
+            <!-- Settings Icon -->
+            <div class="settings-icon" id="settings-icon">
+                <i class="fas fa-cog"></i>
+            </div>
+            
+            <!-- Settings Panel -->
+            <div class="settings-panel" id="settings-panel">
+                <button class="close-settings" id="close-settings">×</button>
+                <h3 class="settings-title">Game Settings</h3>
+                
+                <div class="setting-option">
+                    <span class="setting-label">Enable Sounds</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="sound-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-option">
+                    <span class="setting-label">Show Timer</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="timer-toggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-option">
+                    <span class="setting-label">Enable Hints</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="hints-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="play-btn" id="start-game">Play Game</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="game-screen" style="display: none;">
+            <div class="game-header">
+                <div class="player-info" id="player1-info">
+                    <div class="player-name">Player 1</div>
+                    <div class="player-score" id="player1-score">0</div>
+                </div>
+                
+                <div class="game-controls">
+                    <div class="letter-selection" id="letter-selection">
+                        <button class="letter-btn" id="select-s">S</button>
+                        <button class="letter-btn" id="select-o">O</button>
+                    </div>
+                    <div class="timer-container" id="timer-container">
+                        <div class="timer-label">Time</div>
+                        <div class="timer" id="timer">00:00</div>
+                    </div>
+                    <button class="restart-btn" id="restart-during-game">
+                        <i class="fas fa-redo"></i> Restart
+                    </button>
+                </div>
+                
+                <div class="player-info" id="player2-info">
+                    <div class="player-name">Player 2</div>
+                    <div class="player-score" id="player2-score">0</div>
+                </div>
+            </div>
+            
+            <div class="game-board-container">
+                <div class="game-board" id="game-board"></div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div class="result-screen" style="display: none;">
+            <div class="result-content">
+                <h1 class="result-title">Game Over!</h1>
+                <div class="winner-container">
+                    <div class="winner-name" id="winner-name">Player 1 Wins!</div>
+                    <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+                </div>
+                
+                <div class="scores">
+                    <div class="final-score">
+                        <div class="score-player">Player 1</div>
+                        <div class="score-value" id="final-score1">0</div>
+                    </div>
+                    <div class="final-score">
+                        <div class="score-player">Player 2</div>
+                        <div class="score-value" id="final-score2">0</div>
+                    </div>
+                </div>
+                
+                <div class="high-score" id="high-score">
+                    <i class="fas fa-star"></i> New High Score: <span id="high-score-value">0</span> <i class="fas fa-star"></i>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn restart-btn" id="restart-game">
+                        <i class="fas fa-redo"></i> Play Again
+                    </button>
+                    <button class="action-btn menu-btn" id="return-menu">
+                        <i class="fas fa-home"></i> Main Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
