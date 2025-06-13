@@ -1,8 +1,10 @@
 #  SOS Classic Letter Game Documentation
   # SOS Classic Letter Game
- Prepared by team B-12  
+   
 * Netlify live link :  https://sos-classic-letter-game.netlify.app/
-* github page : 
+* github page : https://annasaheb-dhage.github.io/-SOS-Classic-Letter-Game/
+  
+Prepared by team B-12
 * Team Members :  
     * Magar Sakshi (magarsakshi87@hmail.com)  
     * Dhage Annasaheb (annasahebdhagepatil@gamil.com)  
